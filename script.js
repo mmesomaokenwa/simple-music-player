@@ -27,6 +27,12 @@ window.onload = () => {
             artist: 'J Calm',
             image: 'assets/images/call-my-name.jpg',
             file: 'assets/audios/call my name.mp3.mp3',
+        },
+        {
+            title: 'Asiwaju',
+            artist: 'Ruger',
+            image: 'assets/images/Ruger-Asiwaju-artwork.jpg',
+            file: 'assets/audios/Ruger-Asiwaju-(TrendyBeatz.com).mp3',
         }
     ];
     let currentIndex = 0;
@@ -40,17 +46,17 @@ window.onload = () => {
         
     })
 
-    progressSlider.addEventListener('change', () => {
+    progressSlider.addEventListener('change', function () {
         song.currentTime = progressSlider.value;
     })
 
     playButton.addEventListener('click', () => {
-        if (playIcon.src === 'http://127.0.0.1:5500/simple-music-player/assets/icons/Play_fill.svg') {
+        if (playIcon.src === 'http://127.0.0.1:5500/simple-music-player/assets/icons/play-solid.svg') {
             song.play();
             playIcon.src = 'assets/icons/pause-solid.svg';
         } else {
             song.pause();
-            playIcon.src = 'assets/icons/Play_fill.svg';
+            playIcon.src = 'assets/icons/play-solid.svg';
         }
     })
 
@@ -62,12 +68,10 @@ window.onload = () => {
         setInterval(() => {
             updateProgressBar();
             displayProgress();
-        }, 100)
+        }, 500)
     }
 
-    if (song.ended) {
-        playNextSong();
-    }
+    song.addEventListener('ended', playNextSong());
 
     function updateProgressBar() {
        progressSlider.value = song.currentTime;
@@ -121,18 +125,17 @@ window.onload = () => {
         }
     }
 
-    function loadNewSong(songList) {
-        song.src = songList.file;
-        songTitle.innerHTML = songList.title;
-        artistName.innerHTML = songList.artist;
-        songImage.src = songList.image;
-        playIcon.src = 'assets/icons/Play_fill.svg';
-        // startTimer();
+    function loadNewSong(track) {
+        song.src = track.file;
+        songTitle.innerHTML = track.title;
+        artistName.innerHTML = track.artist;
+        songImage.src = track.image;
+        playIcon.src = 'assets/icons/play-solid.svg';
     }
 
     function stopSong() {
         song.pause();
         progressSlider.value = 0;
-        playIcon.src = 'assets/icons/Play_fill.svg';
+        playIcon.src = 'assets/icons/play-solid.svg';
     }
 }

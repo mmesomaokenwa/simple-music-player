@@ -78,6 +78,7 @@ main {
     max-width: 400px;
     width: 90%;
     padding: 1.5rem;
+    margin-inline: auto;
     background: var(--clr-secondary);
     border-radius: 1.5rem;
 }
@@ -89,6 +90,7 @@ main {
 
 .song-info img {
     border-radius: 1.5rem;
+    aspect-ratio: 1;
 }
 
 .progress-number {
@@ -101,15 +103,16 @@ main {
     height: 5px;
     accent-color: var(--clr-accent);
     outline: none;
+    cursor: pointer;
     transition: all 0.3s ease;
 
     &::-webkit-slider-thumb {
         opacity: 0;
-        /* width: 5px;
-        height: 5px;
-        background-color: var(--clr-accent);
-        border-radius: 50%; */
         cursor: pointer;
+    }
+
+    &:hover {
+        scale: 1.05;
     }
 }
 
@@ -121,7 +124,7 @@ main {
 }
 
 .controls button {
-    padding: .7rem;
+    padding: 1rem;
     border-radius: 50%;
     background: transparent;
     outline: none;
@@ -132,4 +135,9 @@ main {
 .play-pause {
     background: var(--clr-accent) !important;
     box-shadow: 0 0 15px var(--clr-accent);
+    transition: all .3s ease;
+
+    &:hover {
+        scale: .9;
+    }
 }
