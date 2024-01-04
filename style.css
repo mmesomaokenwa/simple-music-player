@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --clr-primary: #212936;
+    --clr-secondary: #121826a6;
+    --clr-accent: #C93B76;
+    --clr-font-primary: #4D5562;
+    --clr-font-secondary: #E5E7EB;
+
+    --fs-700: 1rem;
+    --fs-500: .75rem;
+    --fs-400: .625rem;
+
+    --fw-bold: 700;
+    --fw-semibold: 600;
+    --fw-medium: 500;
+    --fw-regular: 400;
+}
+
+body {
+    font-size: var(--fs-400);
+    font-family: 'Inter', sans-serif;
+    font-weight: var(--fw-regular);
+    color: var(--clr-font-primary);
+    text-align: center;
+    background-image: url(assets/images/bg.jpg);
+}
+
+/* RESETS */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul[role="list"] {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* TYPOGRAPHY */
+
+.song-info .title {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    color: var(--clr-font-secondary);
+    margin-bottom: -1.5rem;
+}
+
+.song-info .artist {
+    font-size: var(--fs-500);
+}
+
+
+/* LAYOUT */
+
+main {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    gap: 2rem;
+    max-width: 400px;
+    width: 90%;
+    padding: 1.5rem;
+    background: var(--clr-secondary);
+    border-radius: 1.5rem;
+}
+
+.song-info {
+    display: grid;
+    gap: 1rem;
+}
+
+.song-info img {
+    border-radius: 1.5rem;
+}
+
+.progress-number {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.progress-slider {
+    width: 100%;
+    height: 5px;
+    accent-color: var(--clr-accent);
+    outline: none;
+    transition: all 0.3s ease;
+
+    &::-webkit-slider-thumb {
+        opacity: 0;
+        /* width: 5px;
+        height: 5px;
+        background-color: var(--clr-accent);
+        border-radius: 50%; */
+        cursor: pointer;
+    }
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.controls button {
+    padding: .7rem;
+    border-radius: 50%;
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.play-pause {
+    background: var(--clr-accent) !important;
+    box-shadow: 0 0 15px var(--clr-accent);
+}
