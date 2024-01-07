@@ -75,10 +75,9 @@ main {
 .container {
     display: grid;
     gap: 2rem;
-    max-width: 400px;
-    width: 90%;
+    max-width: 350px;
+    /* width: 95%; */
     padding: 1.5rem;
-    margin-inline: auto;
     background: var(--clr-secondary);
     border-radius: 1.5rem;
 }
